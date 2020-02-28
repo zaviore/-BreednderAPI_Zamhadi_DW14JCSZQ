@@ -1,30 +1,21 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("users", {
+    return queryInterface.createTable("matches", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      breeder: {
-        type: Sequelize.STRING
+      pet_id: {
+        type: Sequelize.INTEGER
       },
-      email: {
-        type: Sequelize.STRING
+      pet_id_liked: {
+        type: Sequelize.INTEGER
       },
-      password: {
+      status: {
         type: Sequelize.STRING
-      },
-      phone: {
-        type: Sequelize.STRING
-      },
-      address: {
-        type: Sequelize.STRING
-      },
-      roles: {
-        type: Sequelize.ENUM("admin", "user")
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("users");
+    return queryInterface.dropTable("matches");
   }
 };

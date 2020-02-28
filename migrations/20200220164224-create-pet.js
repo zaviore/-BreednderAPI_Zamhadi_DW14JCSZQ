@@ -1,30 +1,34 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("users", {
+    return queryInterface.createTable('pets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      breeder: {
+      nama_pet: {
         type: Sequelize.STRING
       },
-      email: {
+      gender_pet: {
+        type: Sequelize.ENUM("male","female")
+      },
+      id_species: {
+        type: Sequelize.INTEGER
+      },
+      age: {
+        type: Sequelize.ENUM("adult","young","child")
+
+      },
+      id_user: {
+        type: Sequelize.INTEGER
+      },
+      about_pet: {
         type: Sequelize.STRING
       },
-      password: {
+      foto: {
         type: Sequelize.STRING
-      },
-      phone: {
-        type: Sequelize.STRING
-      },
-      address: {
-        type: Sequelize.STRING
-      },
-      roles: {
-        type: Sequelize.ENUM("admin", "user")
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +41,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("users");
+    return queryInterface.dropTable('pets');
   }
 };
